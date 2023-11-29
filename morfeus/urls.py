@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import users.views
+from django.shortcuts import render
 
 urlpatterns = [
+    path('', include('dreams.urls')),
     path('admin/', admin.site.urls),
-    path('hello/', include('dreams.urls')),
+    path('login/', users.views.login, name="login"),
+    path('register/', users.views.register, name="register_users"),
 ]
