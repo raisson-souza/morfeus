@@ -1,8 +1,14 @@
-<form action="{% url 'register_users' %}" method="post">
-    {% csrf_token %}
-    {% for field in form.visible_fields %}
-        {{ field.label }}
-        {{ field }}
-    {% endfor %}
-    <input type="submit">
-</form>
+<link rel="stylesheet" type="text/css" href="../static/index.css">
+<link rel="stylesheet" type="text/css" href="../static/register.css">
+<div class="register-box">
+    <main>
+        <form action="{% url 'register_users' %}" method="post">
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
+                {{ field.label }}
+                {{ field }}
+            {% endfor %}
+            <input type="submit">
+        </form>
+    </main>
+</div>
