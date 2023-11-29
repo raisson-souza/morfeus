@@ -1,0 +1,38 @@
+.home-box {
+    height: 100%;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    height: 15%;
+    background-color: darkblue;
+}
+
+img {
+    width: 50px;
+}
+
+.home-header-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: royalblue;
+}

@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import users.views
-from django.shortcuts import render
 
 urlpatterns = [
     path('', include('dreams.urls')),
