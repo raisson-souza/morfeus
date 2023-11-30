@@ -1,0 +1,55 @@
+.morfeus-box {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+    width: 100vw;
+    background-color: darkblue;
+}
+
+header {
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+img {
+    width: 50px;
+}
+
+main {
+    height: 100%;
+    background-color: royalblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.morfeus-data {
+    display: grid;
+    width: 70%;
+    height: 80%;
+    padding: 40px;
+    background-color: red;
+    grid-template-areas:
+        'stats dng'
+        'toptg dng';
+    grid-template-rows: 1fr 1fr;
+}
+
+.statistics {
+    grid-area: stats;
+    border: 1px black solid;
+}
+
+.top-tags {
+    grid-area: toptg;
+    border: 1px black solid;
+}
+
+.dream-nightmare-graph {
+    grid-area: dng;
+    border: 1px black solid;
+}

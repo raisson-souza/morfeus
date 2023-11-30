@@ -9,3 +9,9 @@ function register() {
 function home() {
     window.location.href = '/'
 }
+
+function create_dream() {
+    console.log("NÃO IMPLEMENTADO")
+}
+
+function logoff() { home() }

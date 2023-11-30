@@ -6,10 +6,6 @@ from django.contrib.auth import login as login_django
 def login(request):
     errors = []
 
-    # if request.method == 'GET':
-    #     form = forms.UsersLogin()
-    #     return render(request, 'login.html', { 'form' : form })
-    
     if request.method == 'POST':
         form = forms.UsersLogin(request.POST)
 
@@ -22,15 +18,18 @@ def login(request):
             if user is not None:
                 if user.check_password(password):
                     login_django(request, user)
-                    return render(request, 'index.html')
+                    return render(request, 'morfeus.html')
                 
                 else:
                     errors.append("senha incorreta.")
 
             else:
                 errors.append("email não encontrado.")
-            
-    form = forms.UsersLogin()
+        else:
+            return render(request, 'login.html', { 'form' : form, 'errors' : form.errors })
+        # PROBLEMA NO LOGIN AO DIGITAR EMAIL ERRADO
+
+    form = forms.UsersLogin(request.POST)
     return render(request, 'login.html', { 'form' : form, 'errors' : errors })
 
 
@@ -48,6 +47,4 @@ def register(request):
             password = form.cleaned_data['password']
             user = User.objects.create_user(username, email, password)
             user.save()
-            return redirect(login)
-
-# Create your views here.
+            return redirect('login')
