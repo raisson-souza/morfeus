@@ -1,4 +1,4 @@
-.register-box {
+.login-box {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -21,4 +21,10 @@ form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.login-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

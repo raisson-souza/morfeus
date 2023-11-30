@@ -1,12 +1,22 @@
-<form method="post" action="{% url 'login' %}">
-
-    {% csrf_token %}
-    {% for field in form.visible_fields %}
-        {{ field.label }}
-        {{ field }}
-    {% endfor %}
-    <input type="submit">
-    {% for error in errors %}
-        {{ error }}
-    {% endfor %}
-</form>
+<script src="../static/redirect_actions.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/index.css">
+<link rel="stylesheet" type="text/css" href="../static/login.css">
+<div class="login-box">
+    <main>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
+                {{ field.label }}
+                {{ field }}
+            {% endfor %}
+            <input type="submit">
+            {% for error in errors %}
+                {{ error }}
+            {% endfor %}
+        </form>
+        <div class="login-actions">
+            <button type="button" onclick="home()">Voltar</button>
+            <button type="button" onclick="register()">Quero me cadastrar</button>
+        </div>
+    </main>
+</div>
