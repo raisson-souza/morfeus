@@ -1,0 +1,52 @@
+.dreams-box {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+    width: 100vw;
+    background-color: darkblue;
+}
+
+header {
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+img {
+    width: 50px;
+}
+
+main {
+    height: 100%;
+    background-color: royalblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dreams-enclosure {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    padding: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+    background-color: red;
+}
+
+.dream-node {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    border: 1px black solid;
+}
+
+.dream-tags {
+    border: 1px black dotted;
+}
+

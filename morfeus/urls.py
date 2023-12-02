@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', users.views.login, name="login"),
     path('register/', users.views.register, name="register_users"),
-    path('morfeus/', dreams.views.morfeus, name="morfeus")
+    path('morfeus/', dreams.views.morfeus, name="morfeus"),
+    path('dreams/', dreams.views.dreams, name="dreams")
 ]

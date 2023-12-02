@@ -15,3 +15,11 @@ function create_dream() {
 }
 
 function logoff() { home() }
+
+function morfeus() {
+    window.location.href = '/morfeus'
+}
+
+function dreams() {
+    window.location.href = '/dreams'
+}
