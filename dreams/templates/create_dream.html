@@ -13,6 +13,9 @@
             {{ field }}
         {% endfor %}
         <input type="submit">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
     </form>
 </body>
 </html>

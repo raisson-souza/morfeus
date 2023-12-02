@@ -33,8 +33,7 @@ class Dream(models.Model):
         choices=DREAM_TYPE
     )
     date = models.DateField(
-        verbose_name="dream_date",
-        auto_now=True
+        verbose_name="dream_date"
     )
 
     def __str__(self):

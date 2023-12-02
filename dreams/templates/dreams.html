@@ -15,7 +15,14 @@
     </header>
     <main>
         <div class="dreams-enclosure" id="dreams-enclosure">
-            <script src="../static/render_dreams.js"></script>
+            {% for dream in dreams %}
+                <div class="dream-node">
+                    <h3 class="dream-title">{{ dream.title }}</h3>
+                    <p class="dream-text">{{ dream.text }}</p>
+                    <p>{{ dream.date }}</p>
+                    <p>{{ dream.dream_type }}</p>
+                </div>
+            {% endfor %}
         </div>
     </main>
 </div>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from dreams import forms, models
+from django.contrib import messages
 
 def home(request):
     return render(request, "home.html")
@@ -8,10 +9,6 @@ def home(request):
 @login_required
 def morfeus(request):
     return render(request, "morfeus.html")
-
-@login_required
-def dreams(request):
-    return render(request, "dreams.html")
 
 @login_required
 def create_dream(request):
@@ -31,5 +28,12 @@ def create_dream(request):
             dream.date = form.cleaned_data["date"]
 
             dream.save()
-            return redirect("dreams")
+            return redirect(dreams)
+        
+        messages.error(request, "Data do sonho inválida.")
+        return render(request, 'create_dream.html', { 'form' : form })
 
+@login_required
+def dreams(request):
+    dreams = models.Dream.objects.filter(author_id=request.user.id).order_by("-date")
+    return render(request, "dreams.html", { 'dreams': dreams })
