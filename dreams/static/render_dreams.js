@@ -4,7 +4,6 @@ function render_dream() {
         { 
             title: "Sonho Mockado",
             text: "Sonho onde ocorreu um dado sonho sonhado...",
-            tags: ["Fulano", "Felicidade", "Paz"]
         }
     ]
 
@@ -20,20 +19,8 @@ function render_dream() {
         text.className = "dream-text"
         text.innerText = dream.text
 
-        let tags = document.createElement("div")
-        tags.className = "dream-tags"
-
-        dream.tags.forEach(tag => {
-            let tag_node = document.createElement("p")
-            tag_node.innerText = tag
-            tag_node.className = "dream-tag"
-
-            tags.appendChild(tag_node)
-        })
-
         dream_node.appendChild(title)
         dream_node.appendChild(text)
-        dream_node.appendChild(tags)
 
         node.appendChild(dream_node)
     })

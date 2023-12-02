@@ -44,11 +44,6 @@ main {
     border: 1px black solid;
 }
 
-.top-tags {
-    grid-area: toptg;
-    border: 1px black solid;
-}
-
 .dream-nightmare-graph {
     grid-area: dng;
     border: 1px black solid;

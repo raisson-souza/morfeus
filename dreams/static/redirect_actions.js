@@ -11,7 +11,7 @@ function home() {
 }
 
 function create_dream() {
-    console.log("NÃO IMPLEMENTADO")
+    window.location.href = '/create_dream'
 }
 
 function logoff() { home() }
