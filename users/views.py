@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from users import forms
 from django.contrib.auth.models import User
 from django.contrib.auth import login as login_django
+from dreams.views import morfeus
 
 def login(request):
     errors = []
@@ -18,7 +19,7 @@ def login(request):
             if user is not None:
                 if user.check_password(password):
                     login_django(request, user)
-                    return render(request, 'morfeus.html')
+                    return redirect(morfeus)
                 
                 else:
                     errors.append("senha incorreta.")

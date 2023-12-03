@@ -29,22 +29,38 @@ main {
 
 .morfeus-data {
     display: grid;
-    width: 70%;
-    height: 80%;
+    max-width: 80%;
+    width: 80%;
     padding: 40px;
     background-color: red;
-    grid-template-areas:
-        'stats dng'
-        'toptg dng';
-    grid-template-rows: 1fr 1fr;
 }
 
 .statistics {
-    grid-area: stats;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+    border: 1px black solid;
+}
+
+.total-dream-nightmare-graph {
+    border: 1px black solid;
+}
+
+.my-dream-nightmare-graph {
     border: 1px black solid;
 }
 
 .dream-nightmare-graph {
-    grid-area: dng;
-    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.no-graph-alert {
+    
 }

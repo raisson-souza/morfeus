@@ -1,4 +1,6 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script src="../static/redirect_actions.js"></script>
+<script src="../static/render_graph.js"></script>
 <link rel="stylesheet" type="text/css" href="../static/index.css">
 <link rel="stylesheet" type="text/css" href="../static/morfeus.css">
 <div class="morfeus-box">
@@ -19,15 +21,25 @@
     <main>
         <div class="morfeus-data">
             <div class="statistics">
+                <div class="my-dreams">
+                    {{ my_dreams_count }}
+                </div>
                 <div class="total-dreams">
-                    16 Sonhos
+                    {{ total_dreams_count }}
                 </div>
                 <div class="total-users">
-                    7 Usuários
+                    {{ users_count }}
                 </div>
             </div>
-            <div class="dream-nightmare-graph">
-                DREAM / NIGHTMARE GRAPH
+            <div class="total-dream-nightmare-graph dream-nightmare-graph">
+                <p>Total de Sonhos X Pesadelos dos usuários</p>
+                <canvas id="pizza1" height="100%" width="100%"></canvas>
+                <script>render_graph("pizza1", ["Sonhos", "Pesadelos"], [{{dreams_type_count}},{{nightmares_type_count}}], ["#0000FF", "#FF0000"])</script>
+            </div>
+            <div class="my-dream-nightmare-graph dream-nightmare-graph">
+                <p>Total de Sonhos X Pesadelos meus</p>
+                <canvas id="pizza2" height="100%" width="100%"></canvas>
+                <script>render_graph("pizza2", ["Sonhos", "Pesadelos"], [{{my_dreams_type_count}},{{my_nightmares_type_count}}], ["#0000FF", "#FF0000"])</script>
             </div>
         </div>
     </main>
