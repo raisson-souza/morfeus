@@ -50,3 +50,11 @@ main {
     border: 1px black dotted;
 }
 
+.no-dreams-enclosure {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
