@@ -15,7 +15,8 @@ header {
 }
 
 img {
-    width: 50px;
+    width: 100px;
+    cursor: auto !important;
 }
 
 main {

@@ -18,7 +18,8 @@ header {
 }
 
 img {
-    width: 50px;
+    width: 100px;
+    cursor: auto !important;
 }
 
 .home-header-actions {
@@ -34,5 +35,52 @@ main {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: royalblue;
+    overflow: auto;
+    background: linear-gradient(270deg, #0032ff, #0054ff, #008cff);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 14s ease infinite;
+    animation: AnimationName 14s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    height: 80%;
+    width: 70%;
+    gap: 50px;
+    border-radius: 85px;
+    background: #019dfe;
+    box-shadow: inset 20px 20px 47px #0173b9,
+                inset -20px -20px 47px #01c7ff;
+}
+
+.content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+#about-dream01 img {
+    width: 200px;
 }
