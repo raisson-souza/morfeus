@@ -9,16 +9,35 @@
     <link rel="stylesheet" type="text/css" href="../static/create_dream.css">
 </head>
 <body>
-    <form action="{% url 'create_dream' %}" method="post">
-        {% csrf_token %}
-        {% for field in form.visible_fields %}
-            {{ field.label }}
-            {{ field }}
-        {% endfor %}
-        <input type="submit">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </form>
+    <div class="create-dream-box">
+        <header>
+            <img src="../static/morfeus_logo.jpg" onclick="morfeus()">
+            <div class="actions">
+                <button type="button" onclick="morfeus()">
+                    Voltar
+                </button>
+                <button type="button" onclick="dreams()">
+                    Meus Sonhos 
+                </button>
+            </div>
+        </header>
+        <main>
+            <div class="create-dream-content">
+                <h2>Cadastre seu Sonho</h2>
+                <img src="../static/morfeus_wallpaper.jpg" alt="MorfeusWallpaper" id="MorfeusWallpaper">
+                <form action="{% url 'create_dream' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                        {{ field.label }}
+                        {{ field }}
+                    {% endfor %}
+                    <input type="submit">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </form>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
