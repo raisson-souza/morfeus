@@ -14,7 +14,7 @@
     <div class="morfeus-box">
         <header>
             <img src="../static/morfeus_logo.jpg">
-            <div class="morfeus-actions">
+            <div class="actions">
                 <button type="button" onclick="create_dream()">
                     Criar Sonho
                 </button>
@@ -30,13 +30,13 @@
             <div class="morfeus-data">
                 <div class="statistics">
                     <div class="my-dreams">
-                        {{ my_dreams_count }}
+                        <p>{{ my_dreams_count }}</p>
                     </div>
                     <div class="total-dreams">
-                        {{ total_dreams_count }}
+                        <p>{{ total_dreams_count }}</p>
                     </div>
                     <div class="total-users">
-                        {{ users_count }}
+                        <p>{{ users_count }}</p>
                     </div>
                 </div>
                 <div class="total-dream-nightmare-graph dream-nightmare-graph">
