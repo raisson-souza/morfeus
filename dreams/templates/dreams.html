@@ -1,34 +1,44 @@
-<script src="../static/redirect_actions.js"></script>
-<link rel="stylesheet" type="text/css" href="../static/index.css">
-<link rel="stylesheet" type="text/css" href="../static/dreams.css">
-<div class="dreams-box">
-    <header>
-        <img src="../static/morfeus_logo.jpg" onclick="morfeus()">
-        <div class="dreams-actions">
-            <button type="button" onclick="morfeus()">
-                Voltar
-            </button>
-            <button type="button" onclick="create_dream()">
-                Criar Sonho
-            </button>
-        </div>
-    </header>
-    <main>
-        {% if dreams.count > 0 %}
-            <div class="dreams-enclosure">
-                {% for dream in dreams %}
-                    <div class="dream-node">
-                        <h3 class="dream-title">{{ dream.title }}</h3>
-                        <p class="dream-text">{{ dream.text }}</p>
-                        <p>{{ dream.date }}</p>
-                        <p>{{ dream.dream_type }}</p>
-                    </div>
-                {% endfor %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus Sonhos</title>
+    <script src="../static/redirect_actions.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+    <link rel="stylesheet" type="text/css" href="../static/dreams.css">
+</head>
+<body>
+    <div class="dreams-box">
+        <header>
+            <img src="../static/morfeus_logo.jpg" onclick="morfeus()">
+            <div class="dreams-actions">
+                <button type="button" onclick="morfeus()">
+                    Voltar
+                </button>
+                <button type="button" onclick="create_dream()">
+                    Criar Sonho
+                </button>
             </div>
-        {% else %}
-            <div class="no-dreams-enclosure">
-                <h2>Você não cadastrou nenhum sonho.</h2>
-            </div>
-        {% endif %}
-    </main>
-</div>
+        </header>
+        <main>
+            {% if dreams.count > 0 %}
+                <div class="dreams-enclosure">
+                    {% for dream in dreams %}
+                        <div class="dream-node">
+                            <h3 class="dream-title">{{ dream.title }}</h3>
+                            <p class="dream-text">{{ dream.text }}</p>
+                            <p>{{ dream.date }}</p>
+                            <p>{{ dream.dream_type }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="no-dreams-enclosure">
+                    <h2>Você não cadastrou nenhum sonho.</h2>
+                </div>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

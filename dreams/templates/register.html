@@ -1,19 +1,29 @@
-<script src="../static/redirect_actions.js"></script>
-<link rel="stylesheet" type="text/css" href="../static/index.css">
-<link rel="stylesheet" type="text/css" href="../static/register.css">
-<div class="register-box">
-    <main>
-        <form action="{% url 'register_users' %}" method="post">
-            {% csrf_token %}
-            {% for field in form.visible_fields %}
-                {{ field.label }}
-                {{ field }}
-            {% endfor %}
-            <input type="submit">
-        </form>
-        <div class="login-actions">
-            <button type="button" onclick="home()">Voltar</button>
-            <button type="button" onclick="login()">Já sou cadastrado</button>
-        </div>
-    </main>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <script src="../static/redirect_actions.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+    <link rel="stylesheet" type="text/css" href="../static/register.css">
+</head>
+<body>
+    <div class="register-box">
+        <main>
+            <form action="{% url 'register_users' %}" method="post">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+                    {{ field.label }}
+                    {{ field }}
+                {% endfor %}
+                <input type="submit">
+            </form>
+            <div class="login-actions">
+                <button type="button" onclick="home()">Voltar</button>
+                <button type="button" onclick="login()">Já sou cadastrado</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
