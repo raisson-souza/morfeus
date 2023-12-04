@@ -5,20 +5,37 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: darkblue;
+    background-image: url("../static/morfeus_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 30px;
     gap: 20px;
     border-radius: 15px;
-    background-color: darkcyan;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #00a6d0, #008caf);
+    box-shadow:  19px 19px 51px #0082a3,
+                -19px -19px 51px #00b4e1;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }

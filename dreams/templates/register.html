@@ -11,6 +11,7 @@
 <body>
     <div class="register-box">
         <main>
+            <h1>Cadastre-se no Morfeus</h1>
             <form action="{% url 'register_users' %}" method="post">
                 {% csrf_token %}
                 {% for field in form.visible_fields %}
@@ -19,7 +20,7 @@
                 {% endfor %}
                 <input type="submit">
             </form>
-            <div class="login-actions">
+            <div class="actions">
                 <button type="button" onclick="home()">Voltar</button>
                 <button type="button" onclick="login()">Já sou cadastrado</button>
             </div>
