@@ -4,6 +4,7 @@
     min-height: 100vh;
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 header {
@@ -20,22 +21,25 @@ img {
 
 main {
     height: 100%;
-    background-color: royalblue;
+    background-color: blue;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: royalblue;
+    padding: 50px;
 }
 
 .dreams-enclosure {
     display: flex;
-    width: 90%;
-    height: 90%;
+    justify-content: center;
     padding: 50px;
     flex-wrap: wrap;
     gap: 30px;
-    background-color: red;
+    overflow: auto;
+}
+
+p, h3, h2 {
+    color: white;
 }
 
 .dream-node {
@@ -43,8 +47,16 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: fit-content;
-    border: 1px black solid;
+    padding: 10px;
+    gap: 10px;
+    width: 30%;
+
+    border-radius: 15px;
+    background: linear-gradient(145deg, #2129ff, #1c22e6);
+    box-shadow:  5px 5px 47px #0c0f66,
+                -5px -5px 47px #323dff;
 }
 
 .dream-tags {
@@ -57,5 +69,18 @@ main {
     height: 90%;
     justify-content: center;
     align-items: center;
-    background-color: red;
+}
+
+.enclosure {
+    border-radius: 30px;
+    background: linear-gradient(145deg, #230b9b, #2a0db8);
+    box-shadow:  22px 22px 41px #1e0984,
+                -22px -22px 41px #300fd4;
+}
+
+.dream-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }

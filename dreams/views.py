@@ -69,4 +69,8 @@ def create_dream(request):
 @login_required
 def dreams(request):
     dreams = models.Dream.objects.filter(author_id=request.user.id).order_by("-date")
+
+    for dream in dreams:
+        dream.text = dream.text[:150]
+
     return render(request, "dreams.html", { 'dreams': dreams })
