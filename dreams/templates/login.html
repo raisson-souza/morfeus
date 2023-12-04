@@ -11,6 +11,7 @@
 <body>
     <div class="login-box">
         <main>
+            <h1>Faça seu Login no Morfeus</h1>
             <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 {% for field in form.visible_fields %}
@@ -22,7 +23,7 @@
                     {{ error }}
                 {% endfor %}
             </form>
-            <div class="login-actions">
+            <div class="actions">
                 <button type="button" onclick="home()">Voltar</button>
                 <button type="button" onclick="register()">Quero me cadastrar</button>
             </div>
