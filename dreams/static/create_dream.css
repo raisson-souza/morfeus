@@ -35,7 +35,7 @@ main {
 .create-dream-content {
     display: grid;
     grid-template-areas: 'titl titl'
-                         'imge form';
+                        'imge form';
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
