@@ -25,24 +25,29 @@
             </div>
         </header>
         <main>
-            {% if dreams.count > 0 %}
-                <div class="dreams-enclosure enclosure">
+            <div class="content">
+                {% if dreams.count > 0 %}
                     {% for dream in dreams %}
                         <div class="dream-node">
                             <h3 class="dream-title">{{ dream.title }}</h3>
-                            <p class="dream-text"><i>{{ dream.text }}...</i></p>
+                            <p class="dream-text"><i>{{ dream.text }}</i></p>
                             <div class="dream-info">
+                                <div class="statistics">
+                                    <p class="dream-lucid">{{ dream.lucid }}</p>
+                                    <p class="dream-period">{{ dream.period }}</p>
+                                    <p class="dream-feeling">{{ dream.feeling }}</p>
+                                </div>
                                 <p class="dream-date">{{ dream.date }}</p>
                                 <p class="dream-type">{{ dream.dream_type }}</p>
                             </div>
                         </div>
                     {% endfor %}
-                </div>
-            {% else %}
-                <div class="no-dreams-enclosure enclosure">
-                    <h2>Você não cadastrou nenhum sonho.</h2>
-                </div>
-            {% endif %}
+                {% else %}
+                    <div class="no-dreams-enclosure enclosure">
+                        <h2>Nenhum sonho público cadastrado no sistema.</h2>
+                    </div>
+                {% endif %}
+            </div>
         </main>
     </div>
 </body>
