@@ -8,9 +8,27 @@ def home(request):
 
 @login_required
 def morfeus(request):
+    def render_phrase(value : int, phrase : str):
+        return f"{ value } sonhos { phrase }." if value == 0 or value > 1 else f"{ value } sonho { phrase }."
+
     my_dreams_count = models.Dream.objects.filter(author_id=request.user.id).count()
     total_dreams_count = models.Dream.objects.count()
     users_count = models.User.objects.count()
+
+    ok_feeling = models.Dream.objects.filter(feeling__in=["Normal","Feliz"]).count()
+    ok_feeling = render_phrase(ok_feeling, "se sentindo bem")
+    not_ok_feeling = models.Dream.objects.filter(feeling__in=["Triste","Raivoso","Assustado"]).count()
+    not_ok_feeling = render_phrase(not_ok_feeling, "se sentindo mal")
+
+    partially_lucid_dreams = models.Dream.objects.filter(lucid__in=["Não Lúcido", "Parcialmente Lúcido"]).count()
+    partially_lucid_dreams = render_phrase(partially_lucid_dreams, "enquanto parcialmente lúcido ou não")
+    lucid_dreams = models.Dream.objects.filter(lucid="Lúcido").count()
+    lucid_dreams = render_phrase(lucid_dreams, "lúcidos")
+
+    day_dreams = models.Dream.objects.filter(period="Dia").count()
+    day_dreams = render_phrase(day_dreams, "de dia")
+    night_dreams = models.Dream.objects.filter(period="Noite").count()
+    night_dreams = render_phrase(night_dreams, "de noite")
 
     dreams_type_count = models.Dream.objects.filter(dream_type="SONHO").count()
     nightmares_type_count = models.Dream.objects.filter(dream_type="PESADELO").count()
@@ -40,7 +58,13 @@ def morfeus(request):
         'dreams_type_count': dreams_type_count,
         'my_dreams_type_count': my_dreams_type_count,
         'nightmares_type_count': nightmares_type_count,
-        'my_nightmares_type_count': my_nightmares_type_count
+        'my_nightmares_type_count': my_nightmares_type_count,
+        'ok_feeling': ok_feeling,
+        'not_ok_feeling': not_ok_feeling,
+        'partially_lucid_dreams': partially_lucid_dreams,
+        'lucid_dreams': lucid_dreams,
+        'day_dreams': day_dreams,
+        'night_dreams': night_dreams
     })
 
 @login_required
@@ -58,7 +82,11 @@ def create_dream(request):
             dream.title = form.cleaned_data["title"]
             dream.text = form.cleaned_data["text"]
             dream.dream_type = form.cleaned_data["dream_type"]
+            dream.feeling = form.cleaned_data["feeling"]
+            dream.lucid = form.cleaned_data["lucid"]
+            dream.period = form.cleaned_data["period"]
             dream.date = form.cleaned_data["date"]
+            dream.public = form.cleaned_data["public"]
 
             dream.save()
             return redirect(dreams)

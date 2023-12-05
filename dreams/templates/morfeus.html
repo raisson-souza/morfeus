@@ -29,14 +29,18 @@
         <main>
             <div class="morfeus-data">
                 <div class="statistics">
-                    <div class="my-dreams">
-                        <p>{{ my_dreams_count }}</p>
+                    <div class="my-dreams minor-statistics">
+                        <p id="my-dreams-count">{{ my_dreams_count }}</p>
+                        <p>{{ ok_feeling }}</p>
+                        <p>{{ not_ok_feeling }}</p>
+                        <p>{{ partially_lucid_dreams }}</p>
+                        <p>{{ lucid_dreams }}</p>
+                        <p>{{ day_dreams }}</p>
+                        <p>{{ night_dreams }}</p>
                     </div>
-                    <div class="total-dreams">
-                        <p>{{ total_dreams_count }}</p>
-                    </div>
-                    <div class="total-users">
+                    <div class="total-dreams minor-statistics">
                         <p>{{ users_count }}</p>
+                        <p>{{ total_dreams_count }}</p>
                     </div>
                 </div>
                 <div class="total-dream-nightmare-graph dream-nightmare-graph">
