@@ -7,24 +7,8 @@
     overflow-x: hidden;
 }
 
-header {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 20%;
-    background-color: darkblue;
-}
-
 img {
-    width: 100px;
     cursor: auto !important;
-}
-
-.actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: center;
 }
 
 main {
