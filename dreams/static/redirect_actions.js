@@ -14,7 +14,9 @@ function create_dream() {
     window.location.href = '/create_dream'
 }
 
-function logoff() { home() }
+function logoff() {
+    window.location.href = '/logoff'
+}
 
 function morfeus() {
     window.location.href = '/morfeus'

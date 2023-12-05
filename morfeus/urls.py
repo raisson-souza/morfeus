@@ -27,5 +27,6 @@ urlpatterns = [
     path('morfeus/', dreams.views.morfeus, name="morfeus"),
     path('create_dream/', dreams.views.create_dream, name="create_dream"),
     path('dreams/', dreams.views.dreams, name="dreams"),
-    path('public_dreams/', dreams.views.public_dreams, name="public_dreams")
+    path('public_dreams/', dreams.views.public_dreams, name="public_dreams"),
+    path('logoff/', users.views.logoff, name="logoff")
 ]

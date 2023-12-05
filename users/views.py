@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from users import forms
 from django.contrib.auth.models import User
-from django.contrib.auth import login as login_django
+from django.contrib.auth import login as login_django, logout
 from dreams.views import morfeus
 
 def login(request):
@@ -49,3 +49,7 @@ def register(request):
             user = User.objects.create_user(username, email, password)
             user.save()
             return redirect('login')
+
+def logoff(request):
+    logout(request)
+    return redirect('home')
