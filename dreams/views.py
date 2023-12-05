@@ -15,26 +15,26 @@ def morfeus(request):
     total_dreams_count = models.Dream.objects.count()
     users_count = models.User.objects.count()
 
-    ok_feeling = models.Dream.objects.filter(feeling__in=["Normal","Feliz"]).count()
+    ok_feeling = models.Dream.objects.filter(author_id=request.user.id, feeling__in=["Normal","Feliz"]).count()
     ok_feeling = render_phrase(ok_feeling, "se sentindo bem")
-    not_ok_feeling = models.Dream.objects.filter(feeling__in=["Triste","Raivoso","Assustado"]).count()
+    not_ok_feeling = models.Dream.objects.filter(author_id=request.user.id, feeling__in=["Triste","Raivoso","Assustado"]).count()
     not_ok_feeling = render_phrase(not_ok_feeling, "se sentindo mal")
 
-    partially_lucid_dreams = models.Dream.objects.filter(lucid__in=["Não Lúcido", "Parcialmente Lúcido"]).count()
+    partially_lucid_dreams = models.Dream.objects.filter(author_id=request.user.id, lucid__in=["Não Lúcido", "Parcialmente Lúcido"]).count()
     partially_lucid_dreams = render_phrase(partially_lucid_dreams, "enquanto parcialmente lúcido ou não")
-    lucid_dreams = models.Dream.objects.filter(lucid="Lúcido").count()
+    lucid_dreams = models.Dream.objects.filter(author_id=request.user.id, lucid="Lúcido").count()
     lucid_dreams = render_phrase(lucid_dreams, "lúcidos")
 
-    day_dreams = models.Dream.objects.filter(period="Dia").count()
+    day_dreams = models.Dream.objects.filter(author_id=request.user.id, period="Dia").count()
     day_dreams = render_phrase(day_dreams, "de dia")
-    night_dreams = models.Dream.objects.filter(period="Noite").count()
+    night_dreams = models.Dream.objects.filter(author_id=request.user.id, period="Noite").count()
     night_dreams = render_phrase(night_dreams, "de noite")
 
-    dreams_type_count = models.Dream.objects.filter(dream_type="SONHO").count()
-    nightmares_type_count = models.Dream.objects.filter(dream_type="PESADELO").count()
+    dreams_type_count = models.Dream.objects.filter(dream_type="Sonho").count()
+    nightmares_type_count = models.Dream.objects.filter(dream_type="Pesadelo").count()
 
-    my_dreams_type_count = models.Dream.objects.filter(dream_type="SONHO", author_id=request.user.id).count()
-    my_nightmares_type_count = models.Dream.objects.filter(dream_type="PESADELO", author_id=request.user.id).count()
+    my_dreams_type_count = models.Dream.objects.filter(dream_type="Sonho", author_id=request.user.id).count()
+    my_nightmares_type_count = models.Dream.objects.filter(dream_type="Pesadelo", author_id=request.user.id).count()
 
     # MY_DREAMS_COUNT
     if my_dreams_count == 0:
@@ -102,3 +102,13 @@ def dreams(request):
         dream.text = dream.text[:150]
 
     return render(request, "dreams.html", { 'dreams': dreams })
+
+@login_required
+def public_dreams(request):
+    dreams = models.Dream.objects.filter(public=True).order_by("-date")
+
+    for dream in dreams:
+        dream.title = dream.title[:30] + "..." if len(dream.title) > 30 else ""
+        dream.text = dream.text[:150] + "..." if len(dream.text) > 150 else ""
+
+    return render(request, "public_dreams.html", { 'dreams': dreams })

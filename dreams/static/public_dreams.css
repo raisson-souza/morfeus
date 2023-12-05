@@ -1,0 +1,95 @@
+.box {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+header {
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: darkblue;
+}
+
+img {
+    width: 100px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    overflow: auto;
+    background-image: url("../static/morfeus_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    min-height: 80%;
+    gap: 30px;
+}
+
+.dream-node {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    width: 25%;
+    padding: 30px;
+    border-radius: 70px;
+    background: linear-gradient(145deg, #2f66e5, #3879ff);
+    box-shadow:  6px 6px 38px #2a5acb,
+                -6px -6px 38px #3e88ff;
+    color: white;
+}
+
+.dream-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.statistics {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'peri luci'
+                         'feel feel';
+    grid-template-rows: auto;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+}
+
+.dream-lucid {
+    grid-area: luci;
+}
+
+.dream-period {
+    grid-area: peri;
+}
+
+.dream-feeling {
+    grid-area: feel;
+}
+
+.dream-date {
+    font-size: 11px;
+}

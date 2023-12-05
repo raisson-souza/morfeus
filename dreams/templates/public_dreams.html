@@ -3,46 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seus Sonhos</title>
+    <title>Sonhos Públicos</title>
     <script src="../static/redirect_actions.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/index.css">
-    <link rel="stylesheet" type="text/css" href="../static/dreams.css">
+    <link rel="stylesheet" type="text/css" href="../static/public_dreams.css">
 </head>
 <body>
-    <div class="dreams-box">
+    <div class="box">
         <header>
-            <img src="../static/morfeus_logo.png" onclick="morfeus()">
+            <img src="../static/morfeus_logo.png" alt="MorfeusLogo" onclick="morfeus()">
             <div class="actions">
                 <button type="button" onclick="morfeus()">
                     Voltar
                 </button>
+                <button type="button" onclick="dreams()">
+                    Meus Sonhos
+                </button>
                 <button type="button" onclick="create_dream()">
                     Criar Sonho
-                </button>
-                <button type="button" onclick="public_dreams()">
-                    Sonhos Públicos
                 </button>
             </div>
         </header>
         <main>
-            {% if dreams.count > 0 %}
-                <div class="dreams-enclosure enclosure">
+            <div class="content">
+                {% if dreams.count > 0 %}
                     {% for dream in dreams %}
                         <div class="dream-node">
                             <h3 class="dream-title">{{ dream.title }}</h3>
-                            <p class="dream-text"><i>{{ dream.text }}...</i></p>
+                            <p class="dream-text"><i>{{ dream.text }}</i></p>
                             <div class="dream-info">
+                                <div class="statistics">
+                                    <p class="dream-lucid">{{ dream.lucid }}</p>
+                                    <p class="dream-period">{{ dream.period }}</p>
+                                    <p class="dream-feeling">{{ dream.feeling }}</p>
+                                </div>
                                 <p class="dream-date">{{ dream.date }}</p>
                                 <p class="dream-type">{{ dream.dream_type }}</p>
                             </div>
                         </div>
                     {% endfor %}
-                </div>
-            {% else %}
-                <div class="no-dreams-enclosure enclosure">
-                    <h2>Você não cadastrou nenhum sonho.</h2>
-                </div>
-            {% endif %}
+                {% else %}
+                    <div class="no-dreams-enclosure enclosure">
+                        <h2>Nenhum sonho público cadastrado no sistema.</h2>
+                    </div>
+                {% endif %}
+            </div>
         </main>
     </div>
 </body>

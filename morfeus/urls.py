@@ -26,5 +26,6 @@ urlpatterns = [
     path('register/', users.views.register, name="register_users"),
     path('morfeus/', dreams.views.morfeus, name="morfeus"),
     path('create_dream/', dreams.views.create_dream, name="create_dream"),
-    path('dreams/', dreams.views.dreams, name="dreams")
+    path('dreams/', dreams.views.dreams, name="dreams"),
+    path('public_dreams/', dreams.views.public_dreams, name="public_dreams")
 ]

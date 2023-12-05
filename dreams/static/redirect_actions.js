@@ -23,3 +23,7 @@ function morfeus() {
 function dreams() {
     window.location.href = '/dreams'
 }
+
+function public_dreams() {
+    window.location.href = '/public_dreams'
+}
