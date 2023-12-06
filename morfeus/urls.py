@@ -28,5 +28,6 @@ urlpatterns = [
     path('create_dream/', dreams.views.create_dream, name="create_dream"),
     path('dreams/', dreams.views.dreams, name="dreams"),
     path('public_dreams/', dreams.views.public_dreams, name="public_dreams"),
-    path('logoff/', users.views.logoff, name="logoff")
+    path('logoff/', users.views.logoff, name="logoff"),
+    path('dream/<int:dream_id>', dreams.views.see_dream, name="see_dream"),
 ]

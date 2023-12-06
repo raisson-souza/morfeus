@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonho {{ dream.title }}</title>
+    <script src="../static/redirect_actions.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+    <link rel="stylesheet" type="text/css" href="../static/see_dream.css">
+</head>
+<body>
+    <div class="box">
+        <header>
+            <img src="../static/morfeus_logo.png" onclick="morfeus()">
+            <div class="actions">
+                <button type="button" onclick="history.back()">
+                    Voltar
+                </button>
+                <button type="button" onclick="morfeus()">
+                    Home
+                </button>
+                <button type="button" onclick="dreams()">
+                    Meus Sonhos
+                </button>
+                <button type="button" onclick="public_dreams()">
+                    Sonhos Públicos
+                </button>
+            </div>
+        </header>
+        <main>
+            {% if ok == '200' %}
+                <div class="dream-content enclosure">
+                    <div class="dream-title">
+                        <h1>{{ dream.title }}</h1>
+                        <h3 id="dream-type">{{ dream.dream_type }}</h3>
+                        <h5 id="dream-date">{{ dream.date }}</h5>
+                    </div>
+                    <div class="dream-info">
+                        <p id="dream-lucid">{{ dream.lucid }}</p>
+                        <p id="dream-period">{{ dream.period }}</p>
+                        <p id="dream-feeling">{{ dream.feeling }}</p>
+                    </div>
+                    <p id="dream-text"><i>{{ dream.text }}</i></p>
+                </div>
+            {% else %}
+                <div class="enclosure" id="border">
+                    <h1>{{ ok }}</h1>
+                    <h2>{{ dream }}</h2>
+                </div>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

@@ -112,3 +112,24 @@ def public_dreams(request):
         dream.text = dream.text[:150] + "..." if len(dream.text) > 150 else ""
 
     return render(request, "public_dreams.html", { 'dreams': dreams })
+
+@login_required
+def see_dream(request, dream_id):
+    dream = models.Dream.objects.filter(id=dream_id).order_by("-date")
+
+    if len(dream) == 0:
+        dream = "Sonho Esquecido."
+        return render(request, "see_dream.html", { 'dream': dream, 'ok': '404' })
+    elif len(dream) > 1:
+        dream = "Erro ao encontrar o sonho."
+        return render(request, "see_dream.html", { 'dream': dream, 'ok': '500' })
+    
+    dream = dream[0]
+
+    if dream.public is False and dream.author.pk != request.user.id:
+        # if dream.author.pk == request.user.id:
+        #     return render(request, "see_dream.html", { 'dream': dream, 'ok': '200' })
+        dream = "Sonho Privado."
+        return render(request, "see_dream.html", { 'dream': dream, 'ok': '403' })
+    
+    return render(request, "see_dream.html", { 'dream': dream, 'ok': '200' })
