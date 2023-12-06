@@ -108,7 +108,7 @@ def public_dreams(request):
     dreams = models.Dream.objects.filter(public=True).order_by("-date")
 
     for dream in dreams:
-        dream.title = dream.title[:30] + "..." if len(dream.title) > 30 else ""
-        dream.text = dream.text[:150] + "..." if len(dream.text) > 150 else ""
+        dream.title = dream.title[:30] + "..." if len(dream.title) > 30 else dream.title
+        dream.text = dream.text[:150] + "..." if len(dream.text) > 150 else dream.text
 
     return render(request, "public_dreams.html", { 'dreams': dreams })
